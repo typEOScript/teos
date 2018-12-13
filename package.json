@@ -1,0 +1,35 @@
+{
+  "name": "tos",
+  "version": "1.0.0",
+  "description": "The EOS smart contract integrated development framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tos": "bin/tos.js"
+  },
+  "keywords": [
+    "eosio",
+    "typescript",
+    "eos smartcontract",
+    "blockchain",
+    "blockchain develop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typEOScript/tos.git"
+  },
+  "author": "lowesyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/typEOScript/tos/issues"
+  },
+  "homepage": "https://github.com/typEOScript/tos#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "download-git-repo": "^1.1.0",
+    "inquirer": "^6.2.1"
+  }
+}
