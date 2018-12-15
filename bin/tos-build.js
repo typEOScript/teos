@@ -8,7 +8,7 @@ const spawn = require('cross-spawn');
 // locate contract source files
 const contracts = glob.sync('contracts/*');
 if (contracts.length === 0) {
-  error('Cannot find any contract source files');
+  return error('Cannot find any contract source files');
 }
 
 // create build dir
@@ -28,10 +28,10 @@ program
     // console.log(option)
     let targets = [], {contract} = option;
     if (contract) {
-      console.log(contract);
+      // console.log(contract);
       const contractPath = path.join(process.cwd(), 'contracts', contract, `${contract}.cpp`);
       if (!fs.existsSync(contractPath)) {
-        return error(`Cannot find ${contract}.cpp in contracts dir`);
+        return error(`Cannot find ${contract}.ts in contracts dir`);
       }
       targets.push(contractPath)
     } else {
@@ -39,6 +39,8 @@ program
     }
 
     info("Begin to compile contracts...");
+    // set environment path
+    process.env.PATH = `${process.env.PATH}${process.platform === 'win32' ? ';' : ':'}${path.join(process.cwd(), 'node_modules', 'typeoscript', 'bin')}`;
     for (let i in targets) {
       const name = path.parse(targets[i]).name;
       const cmdArgs = [targets[i]];
@@ -64,7 +66,7 @@ program
         )
       }
 
-      const rs = spawn.sync('asc', cmdArgs, {cwd: process.cwd(), stdio: 'inherit', env: process.env})
+      const rs = spawn.sync('toc', cmdArgs, {cwd: process.cwd(), stdio: 'inherit', env: process.env});
       console.log(rs);
       if (rs.stderr && rs.stderr.length > 0) {
         if (rs.stderr.indexOf('WARNING') !== -1) {
