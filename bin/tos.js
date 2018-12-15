@@ -10,7 +10,7 @@ program
   .command('build', 'Compile ts contracts to wasm and abi files');
 
 program
-  .command('deploy');
+  .command('deploy', 'Deploy wasm and abi files to EOSIO blockchain');
 
 program.parse(process.argv);
 
