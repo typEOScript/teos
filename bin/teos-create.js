@@ -5,7 +5,7 @@ const inquirer = require('inquirer');
 const path = require('path');
 const {info, error, success} = require('../lib/log');
 
-const TEMPALTE_REPO = 'typEOScript/tos-template';
+const TEMPALTE_REPO = 'typEOScript/teos-template';
 
 program.parse(process.argv);
 

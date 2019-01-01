@@ -4,7 +4,7 @@ const pkg = require('../package');
 program.version(pkg.version, '-v,--version');
 
 program
-  .command('create', 'Initialize a tos project.');
+  .command('create', 'Initialize a teos project.');
 
 program
   .command('build', 'Compile ts contracts to wasm and abi files');
